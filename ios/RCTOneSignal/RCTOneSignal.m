@@ -217,9 +217,10 @@ RCT_EXPORT_METHOD(promptLocation) {
     [OneSignal promptLocation];
 }
 
-RCT_EXPORT_METHOD(postNotification:(NSDictionary *)contents data:(NSDictionary *)data player_id:(NSString*)player_id) {
+RCT_EXPORT_METHOD(postNotification:(NSDictionary *)contents data:(NSDictionary *)data player_id:(NSString*)player_id time:(NSString*)time) {
     [OneSignal postNotification:@{
                                   @"contents" : contents,
+                                  @"send_after": time,
                                   @"data" : @{@"p2p_notification": data},
                                   @"include_player_ids": @[player_id]
                                   }];
